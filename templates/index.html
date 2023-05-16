@@ -1,113 +1,200 @@
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Diabetes Prediction</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <style>
-        body {
-  font-family: Arial, sans-serif;
-  background-color: #f2f2f2;
-  padding: 20px;
-}
+      body {
+        font-family: Arial, sans-serif;
+        background-color: #f2f2f2;
+        padding: 20px;
+      }
+      .main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 200px;
+      }
+      .predict {
+        display: flex;
 
-h1 {
-  text-align: center;
-  color: #4CAF50;
-}
+        justify-content: center;
+        align-items: center;
+      }
+      #card {
+        /* Add shadows to create the "card" effect */
+        padding: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        width: 30%;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+        transition: 0.3s;
+        text-align: center;
+        max-width: 500px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        height: 300px;
+        color: rgb(95, 95, 235);
+      }
+      .color-failure {
+        color: red;
+      }
+      .color-success {
+        color: #4caf50;
+      }
 
-form {
-  max-width: 500px;
-  margin: 0 auto;
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
-}
+      /* On mouse-over, add a deeper shadow */
+      #card:hover {
+        box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+      }
 
-label {
-  display: inline-block;
-  margin-bottom: 5px;
-  font-weight: bold;
-}
+      h1 {
+        text-align: center;
+        color: #4caf50;
+      }
 
-input[type="number"] {
-  padding: 10px;
-  border-radius: 5px;
-  border: none;
-  background-color: #f2f2f2;
-  width: 100%;
-  margin-bottom: 10px;
-  box-sizing: border-box;
-}
+      form {
+        width: 500px;
+        /* margin: 0 auto; */
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 5px;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
 
-input[type="submit"] {
-  background-color: #4CAF50;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
+      label {
+        display: inline-block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
 
-.result {
-  text-align: center;
-  margin-top: 20px;
-  font-size: 24px;
-  font-weight: bold;
-}
+      input[type="number"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        background-color: #f2f2f2;
+        width: 100%;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+      }
 
+      input[type="submit"] {
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 20px;
+      }
     </style>
-</head>
-<body>
-    <h1>Diabetes Prediction</h1>
-    <form id="prediction-form">
-        <label for="pregnancies">Number of Pregnancies:</label>
-        <input type="number" id="pregnancies" name="pregnancies" required><br><br>
-        <label for="glucose">Glucose Level:</label>
-        <input type="number" id="glucose" name="glucose" required><br><br>
-        <label for="bloodpressure">Blood Pressure:</label>
-        <input type="number" id="bloodpressure" name="bloodpressure" required><br><br>
-        <label for="skinthickness">Skin Thickness:</label>
-        <input type="number" id="skinthickness" name="skinthickness" required><br><br>
-        <label for="insulin">Insulin Level:</label>
-        <input type="number" id="insulin" name="insulin" required><br><br>
-        <label for="bmi">BMI:</label>
-        <input type="number" id="bmi" name="bmi" step="0.01" required><br><br>
-        <label for="diabetespedigree">Diabetes Pedigree Function:</label>
-        <input type="number" id="diabetespedigree" name="diabetespedigree" step="0.001" required><br><br>
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required><br><br>
-        <input type="submit" value="Predict">
-    </form>
+  </head>
+  <body>
+    <div class="heading"><h1>Diabetes Prediction</h1></div>
+    <div class="main">
+      <div class="predict">
+        <form id="prediction-form">
+          <label for="pregnancies">Number of Pregnancies:</label>
+          <input
+            type="number"
+            id="pregnancies"
+            name="pregnancies"
+            required
+          /><br /><br />
+          <label for="glucose">Glucose Level:</label>
+          <input
+            type="number"
+            id="glucose"
+            name="glucose"
+            required
+          /><br /><br />
+          <label for="bloodpressure">Blood Pressure:</label>
+          <input
+            type="number"
+            id="bloodpressure"
+            name="bloodpressure"
+            required
+          /><br /><br />
+          <label for="skinthickness">Skin Thickness:</label>
+          <input
+            type="number"
+            id="skinthickness"
+            name="skinthickness"
+            required
+          /><br /><br />
+          <label for="insulin">Insulin Level:</label>
+          <input
+            type="number"
+            id="insulin"
+            name="insulin"
+            required
+          /><br /><br />
+          <label for="bmi">BMI:</label>
+          <input
+            type="number"
+            id="bmi"
+            name="bmi"
+            step="0.01"
+            required
+          /><br /><br />
+          <label for="diabetespedigree">Diabetes Pedigree Function:</label>
+          <input
+            type="number"
+            id="diabetespedigree"
+            name="diabetespedigree"
+            step="0.001"
+            required
+          /><br /><br />
+          <label for="age">Age:</label>
+          <input type="number" id="age" name="age" required /><br /><br />
+          <input type="submit" value="Predict" />
+        </form>
+      </div>
 
+      <div id="card">
+        <h2 id="text-data">
+          Please enter all the data and click on predict button
+        </h2>
+      </div>
+    </div>
     <script>
-        document.getElementById("prediction-form").addEventListener("submit", function(event) {
-            event.preventDefault();
-            let form = new FormData(event.target);
-            let formData = {};
-            form.forEach(function(value, key){
-                formData[key] = value;
-            });
-            fetch('/predict', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(formData)
+      document
+        .getElementById("prediction-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          let form = new FormData(event.target);
+          let formData = {};
+          form.forEach(function (value, key) {
+            formData[key] = value;
+          });
+          fetch("/predict", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(formData),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              //alert("Prediction: " + data.prediction) `;
+              let infoCard = document.getElementById("text-data");
+              if (data.prediction == "1") {
+                infoCard.innerHTML = "Prediction: Diabetic";
+                infoCard.classList.add("color-failure");
+              } else {
+                infoCard.innerHTML = "Prediction: Non Diabetic";
+                infoCard.classList.add("color-success");
+              }
             })
-            .then(response => response.json())
-            .then(data => {
-                //alert("Prediction: " + data.prediction);
-                if(data.prediction == '1')
-                  alert("Prediction: Diabetic" );
-                else
-                alert('Prediction: Non Diabetic');
-            })
-            .catch(error => {
-                console.error('Error:', error);
+            .catch((error) => {
+              console.error("Error:", error);
             });
         });
     </script>
-</body>
+  </body>
 </html>
